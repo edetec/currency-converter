@@ -1,0 +1,39 @@
+<mat-card>
+  <h2>{{ 'CC.TITLE' | translate }}</h2>
+  <small>{{ 'CC.API_LIMIT' | translate }}</small>
+  <mat-divider></mat-divider>
+  <form [formGroup]="form" (ngSubmit)="doConvert()">
+    <div style="padding-top: 1rem;">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ 'CC.FROM' | translate }}</mat-label>
+        <mat-select formControlName="from">
+          <mat-option *ngFor="let currency of currencyList" [value]="currency.code">{{ currency.code }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>{{ 'CC.TO' | translate }}</mat-label>
+        <mat-select formControlName="to">
+          <mat-option *ngFor="let currency of currencyList" [value]="currency.code"
+            [disabled]="currency.code===form.value.from">{{ currency.code }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>{{ 'CC.VALUE' | translate }}</mat-label>
+        <input matInput formControlName='value' />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" style="float: right;"
+        [disabled]="form.invalid">{{ 'CC.CONFIRM' | translate }}</button>
+    </div>
+
+  </form>
+  <div *ngIf="convertedValue" style="text-align: center;">
+    <h2>
+      {{ convertedValue | currency:form.value.to:symbol:'1.0-3':translate.currentLang }}
+    </h2> <small>{{ 'CC.UPDATED_AT' | translate }} {{ convertedTime | date:'short':'':translate.currentLang }}</small>
+  </div>
+  <div style="color: red;" *ngIf="errorMessage">{{errorMessage | translate}}</div>
+</mat-card>

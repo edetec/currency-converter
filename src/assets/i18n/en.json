@@ -1,0 +1,15 @@
+{
+  "APP": {
+    "SELECT": "Change language"
+  },
+  "CC": {
+    "TITLE": "Currency Converter",
+    "FROM": "From",
+    "TO": "To",
+    "VALUE": "Value",
+    "CONFIRM": "Confirm",
+    "UPDATED_AT": "Updated at",
+    "API_LIMIT_REACHED": "Free API limit reached",
+    "API_LIMIT": "Maximum number of requests per hour: 100"
+  }
+}

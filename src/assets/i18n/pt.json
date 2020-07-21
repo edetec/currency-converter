@@ -1,0 +1,15 @@
+{
+  "APP": {
+    "SELECT": "Idioma"
+  },
+  "CC": {
+    "TITLE": "Conversor de Moeda",
+    "FROM": "De",
+    "TO": "Para",
+    "VALUE": "Valor",
+    "CONFIRM": "Confirmar",
+    "UPDATED_AT": "Atualizado em",
+    "API_LIMIT_REACHED": "Limite da API gratuita atingido",
+    "API_LIMIT": "Número máximo de solicitações por hora: 100"
+  }
+}
