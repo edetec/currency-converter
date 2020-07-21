@@ -23,8 +23,8 @@ import { CurrencyConverterComponent } from './currency-converter/currency-conver
 registerLocaleData(localePt);
 
 // AoT requires an exported function for factories
-export function HttpLoaderFactory(httpClient: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(httpClient);
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -51,8 +51,9 @@ export function HttpLoaderFactory(httpClient: HttpClient): TranslateHttpLoader {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
+      defaultLanguage: 'en'
     })
   ],
   providers: [],
